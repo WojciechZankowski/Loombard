@@ -1,0 +1,977 @@
+﻿<!DOCTYPE html>
+<!-- saved from url=(0016)http://localhost -->
+<html xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:eew="http://schemas.microsoft.com/energy/2007">
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style>
+                    
+                    body {
+                        font-family: Verdana, Arial, Helvetica, sans-serif; 
+                        font-size: x-small; 
+                        margin-right:1.5em}
+
+                    .log-entry {margin-bottom:1em;}
+
+                    
+                    .error-log-entry {background-color:#ffcccc; padding:4pt;}
+
+                    
+                    .warning-log-entry {background-color:#ffffc6; padding:4pt;}
+
+                    
+                    .info-log-entry {background-color:#ffffff; padding:4pt;}
+
+                    
+                    .log-entry-header {font-weight:bold;}
+
+                    .log-entry-content {margin: 2pt; }
+
+                    
+                    .expander  {
+                        display: block; 
+                        left: 0em; 
+                        width: 1em; 
+                        float: left; 
+                        color:red; 
+                        font-family:'Courier New'; 
+                        font-weight:bold; 
+                        text-decoration:none;
+                        padding-top:6pt;}
+
+                    td {
+                        font-size:x-small;
+                        font-weight: bold;
+                    }
+
+                    .log-entry-content table {
+;
+                    }
+
+                    .log-entry-content td {
+                        padding: 3pt;
+                    }
+
+                    .detail-name {
+                        font-weight:normal;
+                    }
+
+                </style>
+</head>
+<body class="st">
+<h2>Raport diagnostyki wydajności zasilania</h2>
+<table>
+<tr>
+<td class="detail-name">Nazwa komputera</td>
+<td>ZANO-ASUS</td>
+</tr>
+<tr>
+<td class="detail-name">Godzina skanowania</td>
+<td>2015-03-28T20:02:48Z</td>
+</tr>
+<tr>
+<td class="detail-name">Czas skanowania</td>
+<td>60 sek.
+               </td>
+</tr>
+<tr>
+<td class="detail-name">Producent systemu</td>
+<td>ASUSTeK COMPUTER INC.</td>
+</tr>
+<tr>
+<td class="detail-name">Nazwa produktu systemu</td>
+<td>X550LD</td>
+</tr>
+<tr>
+<td class="detail-name">Data systemu BIOS</td>
+<td>05/14/2014</td>
+</tr>
+<tr>
+<td class="detail-name">Wersja systemu BIOS</td>
+<td>X550LD.306</td>
+</tr>
+<tr>
+<td class="detail-name">Numer kompilacji systemu operacyjnego</td>
+<td>9600</td>
+</tr>
+<tr>
+<td class="detail-name">Rola platformy</td>
+<td>PlatformRoleMobile</td>
+</tr>
+<tr>
+<td class="detail-name">Podłączone</td>
+<td>false</td>
+</tr>
+<tr>
+<td class="detail-name">Liczba procesów</td>
+<td>98</td>
+</tr>
+<tr>
+<td class="detail-name">Liczba wątków</td>
+<td>1362</td>
+</tr>
+<tr>
+<td class="detail-name">Identyfikator GUID raportu</td>
+<td>
+                   {cebf55de-fd69-40b9-b43d-3b14cba2c6f3}
+               </td>
+</tr>
+</table>
+<h3>Wyniki analizy</h3>
+<h4>Błędy</h4>
+<div class="log-entry">
+<div class="
+                            error-log-entry
+                        ">
+<div class="log-entry-header">Zasady zasilania:Stan minimalnej wydajności procesora wynosi 100% (bateria)</div>
+<div class="log-entry-content">
+<div class="log-entry-description">Procesor jest skonfigurowany tak, aby nie obniżał automatycznie zużycia energii w zależności od aktywności.</div><span></span></div>
+</div>
+</div>
+<div class="log-entry">
+<div class="
+                            error-log-entry
+                        ">
+<div class="log-entry-header">Użycie procesora:Użycie procesora jest duże</div>
+<div class="log-entry-content">
+<div class="log-entry-description">Średnie użycie procesora podczas śledzenia było duże. System będzie pobierał mniej energii, gdy średnie użycie procesora będzie bardzo małe. Sprawdź użycie procesora przez poszczególne procesy, aby ustalić, które aplikacje i usługi mają największy wpływ na użycie procesora.</div>
+<table>
+<tr>
+<td><span class="detail-name">Średnie użycie (%)</span></td>
+<td>30.99</td>
+</tr>
+</table><span></span></div>
+</div>
+</div>
+<div class="log-entry">
+<div class="
+                            error-log-entry
+                        ">
+<div class="log-entry-header">Możliwości platformy dotyczące zarządzania energią:Wyłączono tryb ASPM (Active State Power Management) magistrali PCI Express</div>
+<div class="log-entry-content">
+<div class="log-entry-description">Zarządzanie energią stanów aktywnych (ASPM, Active State Power Management) magistrali PCI Express zostało wyłączone z powodu znanej niezgodności ze składnikami sprzętowymi tego komputera.</div><span></span></div>
+</div>
+</div>
+<h4>Ostrzeżenia</h4>
+<div class="log-entry">
+<div class="
+                            warning-log-entry
+                        ">
+<div class="log-entry-header">Rozdzielczość czasomierza platformy:Rozdzielczość czasomierza platformy</div>
+<div class="log-entry-content">
+<div class="log-entry-description">Domyślna rozdzielczość czasomierza platformy wynosi 15,6 ms (15625000 ns) i powinno się jej używać zawsze gdy system jest w stanie bezczynności. Jeśli rozdzielczość czasomierza jest większa, technologie zarządzania zasilaniem procesora mogą być nieskuteczne. Rozdzielczość czasomierza może zostać zwiększona na czas odtwarzania plików multimedialnych lub animacji graficznych.</div>
+<table>
+<tr>
+<td><span class="detail-name">Bieżąca rozdzielczość czasomierza (jednostka 100 ns)</span></td>
+<td>10007</td>
+</tr>
+<tr>
+<td><span class="detail-name">Maksymalny okres czasomierza (jednostka 100 ns)</span></td>
+<td>156250</td>
+</tr>
+</table><span></span></div>
+</div>
+</div>
+<div class="log-entry">
+<div class="
+                            warning-log-entry
+                        ">
+<div class="log-entry-header">Rozdzielczość czasomierza platformy:Niezrealizowane żądanie czasomierza</div>
+<div class="log-entry-content">
+<div class="log-entry-description">Program lub usługa żąda rozdzielczości czasomierza mniejszej niż maksymalna rozdzielczość czasomierza tej platformy.</div>
+<table>
+<tr>
+<td><span class="detail-name">Żądany okres</span></td>
+<td>10000</td>
+</tr>
+<tr>
+<td><span class="detail-name">Identyfikator żądającego procesu</span></td>
+<td>5396</td>
+</tr>
+<tr>
+<td><span class="detail-name">Żądanie ścieżki procesu</span></td>
+<td>\Device\HarddiskVolume4\Program Files (x86)\Mozilla Firefox\firefox.exe</td>
+</tr>
+</table><span></span></div>
+</div>
+</div>
+<div class="log-entry">
+<div class="
+                            warning-log-entry
+                        ">
+<div class="log-entry-header">Rozdzielczość czasomierza platformy:Niezrealizowane żądanie czasomierza</div>
+<div class="log-entry-content">
+<div class="log-entry-description">Program lub usługa żąda rozdzielczości czasomierza mniejszej niż maksymalna rozdzielczość czasomierza tej platformy.</div>
+<table>
+<tr>
+<td><span class="detail-name">Żądany okres</span></td>
+<td>10000</td>
+</tr>
+<tr>
+<td><span class="detail-name">Identyfikator żądającego procesu</span></td>
+<td>2924</td>
+</tr>
+<tr>
+<td><span class="detail-name">Żądanie ścieżki procesu</span></td>
+<td>\Device\HarddiskVolume4\Program Files (x86)\AVG Web TuneUp\avgcefrend.exe</td>
+</tr>
+</table><span></span></div>
+</div>
+</div>
+<div class="log-entry">
+<div class="
+                            warning-log-entry
+                        ">
+<div class="log-entry-header">Użycie procesora:Poszczególne procesy o znacznym użyciu procesora.</div>
+<div class="log-entry-content">
+<div class="log-entry-description">Ten proces ma duży udział w całkowitym użyciu procesora zarejestrowanym podczas śledzenia.</div>
+<table>
+<tr>
+<td><span class="detail-name">Nazwa procesu</span></td>
+<td>AsusTPCenter.exe</td>
+</tr>
+<tr>
+<td><span class="detail-name">Identyfikator PID</span></td>
+<td>8444</td>
+</tr>
+<tr>
+<td><span class="detail-name">Średnie użycie (%)</span></td>
+<td>0.93</td>
+</tr>
+<tr>
+<td><span class="detail-name">
+                    Moduł
+                </span></td>
+<td><span class="detail-name">
+                    Średnie użycie modułu (%)
+                </span></td>
+</tr>
+<tr>
+<td>\SystemRoot\system32\ntoskrnl.exe</td>
+<td>0.62</td>
+</tr>
+<tr>
+<td>\Device\HarddiskVolume4\Windows\System32\KernelBase.dll</td>
+<td>0.10</td>
+</tr>
+<tr>
+<td>\Device\HarddiskVolume4\Windows\System32\ntdll.dll</td>
+<td>0.08</td>
+</tr>
+</table><span></span></div>
+</div>
+</div>
+<div class="log-entry">
+<div class="
+                            warning-log-entry
+                        ">
+<div class="log-entry-header">Użycie procesora:Poszczególne procesy o znacznym użyciu procesora.</div>
+<div class="log-entry-content">
+<div class="log-entry-description">Ten proces ma duży udział w całkowitym użyciu procesora zarejestrowanym podczas śledzenia.</div>
+<table>
+<tr>
+<td><span class="detail-name">Nazwa procesu</span></td>
+<td>System</td>
+</tr>
+<tr>
+<td><span class="detail-name">Identyfikator PID</span></td>
+<td>4</td>
+</tr>
+<tr>
+<td><span class="detail-name">Średnie użycie (%)</span></td>
+<td>0.86</td>
+</tr>
+<tr>
+<td><span class="detail-name">
+                    Moduł
+                </span></td>
+<td><span class="detail-name">
+                    Średnie użycie modułu (%)
+                </span></td>
+</tr>
+<tr>
+<td>\SystemRoot\system32\ntoskrnl.exe</td>
+<td>0.49</td>
+</tr>
+<tr>
+<td>\SystemRoot\system32\DRIVERS\athwbx.sys</td>
+<td>0.12</td>
+</tr>
+<tr>
+<td>\SystemRoot\system32\DRIVERS\DptfManager.sys</td>
+<td>0.08</td>
+</tr>
+</table><span></span></div>
+</div>
+</div>
+<div class="log-entry">
+<div class="
+                            warning-log-entry
+                        ">
+<div class="log-entry-header">Użycie procesora:Poszczególne procesy o znacznym użyciu procesora.</div>
+<div class="log-entry-content">
+<div class="log-entry-description">Ten proces ma duży udział w całkowitym użyciu procesora zarejestrowanym podczas śledzenia.</div>
+<table>
+<tr>
+<td><span class="detail-name">Nazwa procesu</span></td>
+<td>vprot.exe</td>
+</tr>
+<tr>
+<td><span class="detail-name">Identyfikator PID</span></td>
+<td>5404</td>
+</tr>
+<tr>
+<td><span class="detail-name">Średnie użycie (%)</span></td>
+<td>0.84</td>
+</tr>
+<tr>
+<td><span class="detail-name">
+                    Moduł
+                </span></td>
+<td><span class="detail-name">
+                    Średnie użycie modułu (%)
+                </span></td>
+</tr>
+<tr>
+<td>\SystemRoot\system32\ntoskrnl.exe</td>
+<td>0.61</td>
+</tr>
+<tr>
+<td>\Device\HarddiskVolume4\Windows\SysWOW64\ntdll.dll</td>
+<td>0.04</td>
+</tr>
+<tr>
+<td>\Device\HarddiskVolume4\Windows\SysWOW64\kernel32.dll</td>
+<td>0.02</td>
+</tr>
+</table><span></span></div>
+</div>
+</div>
+<div class="log-entry">
+<div class="
+                            warning-log-entry
+                        ">
+<div class="log-entry-header">Użycie procesora:Poszczególne procesy o znacznym użyciu procesora.</div>
+<div class="log-entry-content">
+<div class="log-entry-description">Ten proces ma duży udział w całkowitym użyciu procesora zarejestrowanym podczas śledzenia.</div>
+<table>
+<tr>
+<td><span class="detail-name">Nazwa procesu</span></td>
+<td>firefox.exe</td>
+</tr>
+<tr>
+<td><span class="detail-name">Identyfikator PID</span></td>
+<td>5396</td>
+</tr>
+<tr>
+<td><span class="detail-name">Średnie użycie (%)</span></td>
+<td>0.75</td>
+</tr>
+<tr>
+<td><span class="detail-name">
+                    Moduł
+                </span></td>
+<td><span class="detail-name">
+                    Średnie użycie modułu (%)
+                </span></td>
+</tr>
+<tr>
+<td>\Device\HarddiskVolume4\Program Files (x86)\Mozilla Firefox\xul.dll</td>
+<td>0.48</td>
+</tr>
+<tr>
+<td>\SystemRoot\system32\ntoskrnl.exe</td>
+<td>0.08</td>
+</tr>
+<tr>
+<td></td>
+<td>0.06</td>
+</tr>
+</table><span></span></div>
+</div>
+</div>
+<div class="log-entry">
+<div class="
+                            warning-log-entry
+                        ">
+<div class="log-entry-header">Użycie procesora:Poszczególne procesy o znacznym użyciu procesora.</div>
+<div class="log-entry-content">
+<div class="log-entry-description">Ten proces ma duży udział w całkowitym użyciu procesora zarejestrowanym podczas śledzenia.</div>
+<table>
+<tr>
+<td><span class="detail-name">Nazwa procesu</span></td>
+<td>FlashPlayerPlugin_16_0_0_305.exe</td>
+</tr>
+<tr>
+<td><span class="detail-name">Identyfikator PID</span></td>
+<td>8248</td>
+</tr>
+<tr>
+<td><span class="detail-name">Średnie użycie (%)</span></td>
+<td>0.59</td>
+</tr>
+<tr>
+<td><span class="detail-name">
+                    Moduł
+                </span></td>
+<td><span class="detail-name">
+                    Średnie użycie modułu (%)
+                </span></td>
+</tr>
+<tr>
+<td>\Device\HarddiskVolume4\Windows\SysWOW64\Macromed\Flash\NPSWF32_16_0_0_305.dll</td>
+<td>0.27</td>
+</tr>
+<tr>
+<td>\SystemRoot\system32\ntoskrnl.exe</td>
+<td>0.10</td>
+</tr>
+<tr>
+<td>\Device\HarddiskVolume4\Windows\SysWOW64\Macromed\Flash\FlashPlayerPlugin_16_0_0_305.exe</td>
+<td>0.06</td>
+</tr>
+</table><span></span></div>
+</div>
+</div>
+<div class="log-entry">
+<div class="
+                            warning-log-entry
+                        ">
+<div class="log-entry-header">Użycie procesora:Poszczególne procesy o znacznym użyciu procesora.</div>
+<div class="log-entry-content">
+<div class="log-entry-description">Ten proces ma duży udział w całkowitym użyciu procesora zarejestrowanym podczas śledzenia.</div>
+<table>
+<tr>
+<td><span class="detail-name">Nazwa procesu</span></td>
+<td>plugin-container.exe</td>
+</tr>
+<tr>
+<td><span class="detail-name">Identyfikator PID</span></td>
+<td>1380</td>
+</tr>
+<tr>
+<td><span class="detail-name">Średnie użycie (%)</span></td>
+<td>0.37</td>
+</tr>
+<tr>
+<td><span class="detail-name">
+                    Moduł
+                </span></td>
+<td><span class="detail-name">
+                    Średnie użycie modułu (%)
+                </span></td>
+</tr>
+<tr>
+<td>\SystemRoot\system32\ntoskrnl.exe</td>
+<td>0.11</td>
+</tr>
+<tr>
+<td>\Device\HarddiskVolume4\Windows\SysWOW64\Macromed\Flash\NPSWF32_16_0_0_305.dll</td>
+<td>0.09</td>
+</tr>
+<tr>
+<td>\Device\HarddiskVolume4\Windows\SysWOW64\ntdll.dll</td>
+<td>0.03</td>
+</tr>
+</table><span></span></div>
+</div>
+</div>
+<h4>Informacje</h4>
+<div class="log-entry">
+<div class="
+                            info-log-entry
+                        ">
+<div class="log-entry-header">Rozdzielczość czasomierza platformy:Stos żądań czasomierza</div>
+<div class="log-entry-content">
+<div class="log-entry-description">Stos modułów odpowiedzialnych za ustawienia najniższej platformy czasomierza w tym procesie.</div>
+<table>
+<tr>
+<td><span class="detail-name">Żądany okres</span></td>
+<td>10000</td>
+</tr>
+<tr>
+<td><span class="detail-name">Identyfikator żądającego procesu</span></td>
+<td>5396</td>
+</tr>
+<tr>
+<td><span class="detail-name">Żądanie ścieżki procesu</span></td>
+<td>\Device\HarddiskVolume4\Program Files (x86)\Mozilla Firefox\firefox.exe</td>
+</tr>
+<tr>
+<td><span class="detail-name">
+                        Stos modułu wywołującego
+                    </span></td>
+<td>\Device\HarddiskVolume4\Windows\SysWOW64\ntdll.dll</td>
+</tr>
+<tr>
+<td><span class="detail-name"></span></td>
+<td>\Device\HarddiskVolume4\Windows\SysWOW64\kernel32.dll</td>
+</tr>
+<tr>
+<td><span class="detail-name"></span></td>
+<td>\Device\HarddiskVolume4\Program Files (x86)\Mozilla Firefox\xul.dll</td>
+</tr>
+<tr>
+<td><span class="detail-name"></span></td>
+<td>
+                    Nieznany moduł
+                </td>
+</tr>
+</table><span></span></div>
+</div>
+</div>
+<div class="log-entry">
+<div class="
+                            info-log-entry
+                        ">
+<div class="log-entry-header">Rozdzielczość czasomierza platformy:Stos żądań czasomierza</div>
+<div class="log-entry-content">
+<div class="log-entry-description">Stos modułów odpowiedzialnych za ustawienia najniższej platformy czasomierza w tym procesie.</div>
+<table>
+<tr>
+<td><span class="detail-name">Żądany okres</span></td>
+<td>10000</td>
+</tr>
+<tr>
+<td><span class="detail-name">Identyfikator żądającego procesu</span></td>
+<td>2924</td>
+</tr>
+<tr>
+<td><span class="detail-name">Żądanie ścieżki procesu</span></td>
+<td>\Device\HarddiskVolume4\Program Files (x86)\AVG Web TuneUp\avgcefrend.exe</td>
+</tr>
+<tr>
+<td><span class="detail-name">
+                        Stos modułu wywołującego
+                    </span></td>
+<td>\Device\HarddiskVolume4\Windows\SysWOW64\ntdll.dll</td>
+</tr>
+<tr>
+<td><span class="detail-name"></span></td>
+<td>\Device\HarddiskVolume4\Windows\SysWOW64\kernel32.dll</td>
+</tr>
+<tr>
+<td><span class="detail-name"></span></td>
+<td>\Device\HarddiskVolume4\Program Files (x86)\AVG Web TuneUp\libcef.dll</td>
+</tr>
+<tr>
+<td><span class="detail-name"></span></td>
+<td>\Device\HarddiskVolume4\Windows\SysWOW64\kernel32.dll</td>
+</tr>
+</table><span></span></div>
+</div>
+</div>
+<div class="log-entry">
+<div class="
+                            info-log-entry
+                        ">
+<div class="log-entry-header">Zasady zasilania:Aktywny plan zasilania</div>
+<div class="log-entry-content">
+<div class="log-entry-description">Aktualnie stosowany plan zasilania</div>
+<table>
+<tr>
+<td><span class="detail-name">
+                    Nazwa planu
+                </span></td>
+<td>
+                        Niestandardowy
+                    </td>
+</tr>
+<tr>
+<td><span class="detail-name">Identyfikator GUID planu</span></td>
+<td>{df011ed9-9131-49b9-8090-46963cfb65ce}</td>
+</tr>
+</table><span></span></div>
+</div>
+</div>
+<div class="log-entry">
+<div class="
+                            info-log-entry
+                        ">
+<div class="log-entry-header">Zasady zasilania:Charakter planu zasilania (bateria)</div>
+<div class="log-entry-content">
+<div class="log-entry-description">Charakter bieżącego planu zasilania, który obowiązuje gdy system jest zasilany z baterii.</div>
+<table>
+<tr>
+<td><span class="detail-name">Charakter</span></td>
+<td>
+                        Oszczędzanie energii
+                    </td>
+</tr>
+</table><span></span></div>
+</div>
+</div>
+<div class="log-entry">
+<div class="
+                            info-log-entry
+                        ">
+<div class="log-entry-header">Zasady zasilania:Jakość wideo (bateria)</div>
+<div class="log-entry-content">
+<div class="log-entry-description">Umożliwia optymalizację odtwarzania wideo w programie Windows Media Player z naciskiem na jakość lub oszczędność energii.</div>
+<table>
+<tr>
+<td><span class="detail-name">Tryb wysokiej jakości</span></td>
+<td>
+                        Optymalizacja pod kątem oszczędności energii
+                    </td>
+</tr>
+</table><span></span></div>
+</div>
+</div>
+<div class="log-entry">
+<div class="
+                            info-log-entry
+                        ">
+<div class="log-entry-header">Zasady zasilania:Charakter planu zasilania (podłączony)</div>
+<div class="log-entry-content">
+<div class="log-entry-description">Charakter bieżącego planu zasilania, który obowiązuje gdy system jest podłączony do zasilania.</div>
+<table>
+<tr>
+<td><span class="detail-name">Charakter</span></td>
+<td>
+                        Oszczędzanie energii
+                    </td>
+</tr>
+</table><span></span></div>
+</div>
+</div>
+<div class="log-entry">
+<div class="
+                            info-log-entry
+                        ">
+<div class="log-entry-header">Zasady zasilania:Zasady zasilania nadajnika radiowego 802.11 to Maksymalna wydajność (podłączony)</div>
+<div class="log-entry-content">
+<div class="log-entry-description">Bieżące zasady zarządzania energią dla kart sieci bezprzewodowych zgodnych ze standardem 802.11 są skonfigurowane tak, aby nie używać trybów oszczędzania energii.</div><span></span></div>
+</div>
+</div>
+<div class="log-entry">
+<div class="
+                            info-log-entry
+                        ">
+<div class="log-entry-header">Zasady zasilania:Jakość wideo (podłączony)</div>
+<div class="log-entry-content">
+<div class="log-entry-description">Umożliwia optymalizację odtwarzania wideo w programie Windows Media Player z naciskiem na jakość lub oszczędność energii.</div>
+<table>
+<tr>
+<td><span class="detail-name">Tryb wysokiej jakości</span></td>
+<td>
+                        Równowaga między jakością wideo a oszczędnością energii
+                    </td>
+</tr>
+</table><span></span></div>
+</div>
+</div>
+<div class="log-entry">
+<div class="
+                            info-log-entry
+                        ">
+<div class="log-entry-header">Żądania dostępności systemu:Sukces analizy</div>
+<div class="log-entry-content">
+<div class="log-entry-description">Analiza zakończyła się pomyślnie. Nie znaleziono żadnych problemów z wydajnością. Nie zwrócono żadnych informacji.</div><span></span></div>
+</div>
+</div>
+<div class="log-entry">
+<div class="
+                            info-log-entry
+                        ">
+<div class="log-entry-header">Wstrzymanie USB:Sukces analizy</div>
+<div class="log-entry-content">
+<div class="log-entry-description">Analiza zakończyła się pomyślnie. Nie znaleziono żadnych problemów z wydajnością. Nie zwrócono żadnych informacji.</div><span></span></div>
+</div>
+</div>
+<div class="log-entry">
+<div class="
+                            info-log-entry
+                        ">
+<div class="log-entry-header">Bateria:Informacje o baterii</div>
+<div class="log-entry-content">
+<div class="log-entry-description"></div>
+<table>
+<tr>
+<td><span class="detail-name">Identyfikator baterii</span></td>
+<td> ASUSTeKX550A26</td>
+</tr>
+<tr>
+<td><span class="detail-name">Producent</span></td>
+<td>ASUSTeK</td>
+</tr>
+<tr>
+<td><span class="detail-name">Numer seryjny</span></td>
+<td> </td>
+</tr>
+<tr>
+<td><span class="detail-name">Skład chemiczny</span></td>
+<td>LIon</td>
+</tr>
+<tr>
+<td><span class="detail-name">Długoterminowe</span></td>
+<td>1</td>
+</tr>
+<tr>
+<td><span class="detail-name">Szczelnie zamknięte</span></td>
+<td>0</td>
+</tr>
+<tr>
+<td><span class="detail-name">Liczba cykli</span></td>
+<td>34</td>
+</tr>
+<tr>
+<td><span class="detail-name">Pojemność nominalna</span></td>
+<td>38480</td>
+</tr>
+<tr>
+<td><span class="detail-name">Ostatnie pełne ładowanie</span></td>
+<td>37192</td>
+</tr>
+</table><span></span></div>
+</div>
+</div>
+<div class="log-entry">
+<div class="
+                            info-log-entry
+                        ">
+<div class="log-entry-header">Możliwości platformy dotyczące zarządzania energią:Obsługiwane stany uśpienia</div>
+<div class="log-entry-content">
+<div class="log-entry-description">Stany uśpienia umożliwiają komputerowi przejście w stan ograniczonego zużycia energii po pewnym okresie nieaktywności. Domyślnym stanem uśpienia na platformach Windows jest stan S3. W tym stanie komputer zużywa tylko tyle energii, ile potrzeba na utrzymanie zawartości pamięci, a wznowienie pracy z tego stanu przebiega szybko. Tylko nieliczne platformy obsługują stany uśpienia S1 i S2.</div>
+<table>
+<tr>
+<td><span class="detail-name">Stan uśpienia S1 jest obsługiwany</span></td>
+<td>false</td>
+</tr>
+<tr>
+<td><span class="detail-name">Stan uśpienia S2 jest obsługiwany</span></td>
+<td>false</td>
+</tr>
+<tr>
+<td><span class="detail-name">Stan uśpienia S3 jest obsługiwany</span></td>
+<td>true</td>
+</tr>
+<tr>
+<td><span class="detail-name">Stan uśpienia S4 jest obsługiwany</span></td>
+<td>true</td>
+</tr>
+</table><span></span></div>
+</div>
+</div>
+<div class="log-entry">
+<div class="
+                            info-log-entry
+                        ">
+<div class="log-entry-header">Możliwości platformy dotyczące zarządzania energią:Obsługa stanu wstrzymania przy zachowaniu połączenia</div>
+<div class="log-entry-content">
+<div class="log-entry-description">Stan wstrzymania przy zachowaniu połączenia umożliwia przejście komputera w tryb niskiego poboru energii, w którym jest zawsze włączony i ma aktywne połączenie. Jeśli stan wstrzymania przy zachowaniu połączenia jest obsługiwany, jest używany zamiast stanu uśpienia systemu.</div>
+<table>
+<tr>
+<td><span class="detail-name">Stan wstrzymania przy zachowaniu połączenia jest obsługiwany</span></td>
+<td>false</td>
+</tr>
+</table><span></span></div>
+</div>
+</div>
+<div class="log-entry">
+<div class="
+                            info-log-entry
+                        ">
+<div class="log-entry-header">Możliwości platformy dotyczące zarządzania energią:Funkcja dostosowywania jasności ekranu jest obsługiwana.</div>
+<div class="log-entry-content">
+<div class="log-entry-description">Na tym komputerze system Windows może automatycznie sterować jasnością zintegrowanego ekranu.</div><span></span></div>
+</div>
+</div>
+<div class="log-entry">
+<div class="
+                            info-log-entry
+                        ">
+<div class="log-entry-header">Możliwości platformy dotyczące zarządzania energią:Możliwości zarządzania energią procesora</div>
+<div class="log-entry-content">
+<div class="log-entry-description">Skuteczne zarządzanie energią procesora umożliwia automatyczne równoważenie wydajności i zużycia energii.</div>
+<table>
+<tr>
+<td><span class="detail-name">Grupa</span></td>
+<td>0</td>
+</tr>
+<tr>
+<td><span class="detail-name">Indeks</span></td>
+<td>0</td>
+</tr>
+<tr>
+<td><span class="detail-name">Liczba stanów bezczynności</span></td>
+<td>3</td>
+</tr>
+<tr>
+<td><span class="detail-name">Typ stanu bezczynności</span></td>
+<td>Stany bezczynności (C) systemu ACPI</td>
+</tr>
+<tr>
+<td><span class="detail-name">Częstotliwość nominalna (MHz)</span></td>
+<td>1700</td>
+</tr>
+<tr>
+<td><span class="detail-name">Procent maksymalnej wydajności</span></td>
+<td>100</td>
+</tr>
+<tr>
+<td><span class="detail-name">Procent najniższej wydajności</span></td>
+<td>46</td>
+</tr>
+<tr>
+<td><span class="detail-name">Procent najniższej wartości dławienia</span></td>
+<td>3</td>
+</tr>
+<tr>
+<td><span class="detail-name">Typ kontrolek wydajności</span></td>
+<td>Stany wydajności (P) lub dławienia (T) systemu ACPI</td>
+</tr>
+</table><span></span></div>
+</div>
+</div>
+<div class="log-entry">
+<div class="
+                            info-log-entry
+                        ">
+<div class="log-entry-header">Możliwości platformy dotyczące zarządzania energią:Możliwości zarządzania energią procesora</div>
+<div class="log-entry-content">
+<div class="log-entry-description">Skuteczne zarządzanie energią procesora umożliwia automatyczne równoważenie wydajności i zużycia energii.</div>
+<table>
+<tr>
+<td><span class="detail-name">Grupa</span></td>
+<td>0</td>
+</tr>
+<tr>
+<td><span class="detail-name">Indeks</span></td>
+<td>1</td>
+</tr>
+<tr>
+<td><span class="detail-name">Liczba stanów bezczynności</span></td>
+<td>3</td>
+</tr>
+<tr>
+<td><span class="detail-name">Typ stanu bezczynności</span></td>
+<td>Stany bezczynności (C) systemu ACPI</td>
+</tr>
+<tr>
+<td><span class="detail-name">Częstotliwość nominalna (MHz)</span></td>
+<td>1700</td>
+</tr>
+<tr>
+<td><span class="detail-name">Procent maksymalnej wydajności</span></td>
+<td>100</td>
+</tr>
+<tr>
+<td><span class="detail-name">Procent najniższej wydajności</span></td>
+<td>46</td>
+</tr>
+<tr>
+<td><span class="detail-name">Procent najniższej wartości dławienia</span></td>
+<td>3</td>
+</tr>
+<tr>
+<td><span class="detail-name">Typ kontrolek wydajności</span></td>
+<td>Stany wydajności (P) lub dławienia (T) systemu ACPI</td>
+</tr>
+</table><span></span></div>
+</div>
+</div>
+<div class="log-entry">
+<div class="
+                            info-log-entry
+                        ">
+<div class="log-entry-header">Możliwości platformy dotyczące zarządzania energią:Możliwości zarządzania energią procesora</div>
+<div class="log-entry-content">
+<div class="log-entry-description">Skuteczne zarządzanie energią procesora umożliwia automatyczne równoważenie wydajności i zużycia energii.</div>
+<table>
+<tr>
+<td><span class="detail-name">Grupa</span></td>
+<td>0</td>
+</tr>
+<tr>
+<td><span class="detail-name">Indeks</span></td>
+<td>2</td>
+</tr>
+<tr>
+<td><span class="detail-name">Liczba stanów bezczynności</span></td>
+<td>3</td>
+</tr>
+<tr>
+<td><span class="detail-name">Typ stanu bezczynności</span></td>
+<td>Stany bezczynności (C) systemu ACPI</td>
+</tr>
+<tr>
+<td><span class="detail-name">Częstotliwość nominalna (MHz)</span></td>
+<td>1700</td>
+</tr>
+<tr>
+<td><span class="detail-name">Procent maksymalnej wydajności</span></td>
+<td>100</td>
+</tr>
+<tr>
+<td><span class="detail-name">Procent najniższej wydajności</span></td>
+<td>46</td>
+</tr>
+<tr>
+<td><span class="detail-name">Procent najniższej wartości dławienia</span></td>
+<td>3</td>
+</tr>
+<tr>
+<td><span class="detail-name">Typ kontrolek wydajności</span></td>
+<td>Stany wydajności (P) lub dławienia (T) systemu ACPI</td>
+</tr>
+</table><span></span></div>
+</div>
+</div>
+<div class="log-entry">
+<div class="
+                            info-log-entry
+                        ">
+<div class="log-entry-header">Możliwości platformy dotyczące zarządzania energią:Możliwości zarządzania energią procesora</div>
+<div class="log-entry-content">
+<div class="log-entry-description">Skuteczne zarządzanie energią procesora umożliwia automatyczne równoważenie wydajności i zużycia energii.</div>
+<table>
+<tr>
+<td><span class="detail-name">Grupa</span></td>
+<td>0</td>
+</tr>
+<tr>
+<td><span class="detail-name">Indeks</span></td>
+<td>3</td>
+</tr>
+<tr>
+<td><span class="detail-name">Liczba stanów bezczynności</span></td>
+<td>3</td>
+</tr>
+<tr>
+<td><span class="detail-name">Typ stanu bezczynności</span></td>
+<td>Stany bezczynności (C) systemu ACPI</td>
+</tr>
+<tr>
+<td><span class="detail-name">Częstotliwość nominalna (MHz)</span></td>
+<td>1700</td>
+</tr>
+<tr>
+<td><span class="detail-name">Procent maksymalnej wydajności</span></td>
+<td>100</td>
+</tr>
+<tr>
+<td><span class="detail-name">Procent najniższej wydajności</span></td>
+<td>46</td>
+</tr>
+<tr>
+<td><span class="detail-name">Procent najniższej wartości dławienia</span></td>
+<td>3</td>
+</tr>
+<tr>
+<td><span class="detail-name">Typ kontrolek wydajności</span></td>
+<td>Stany wydajności (P) lub dławienia (T) systemu ACPI</td>
+</tr>
+</table><span></span></div>
+</div>
+</div>
+<div class="log-entry">
+<div class="
+                            info-log-entry
+                        ">
+<div class="log-entry-header">Sterowniki urządzeń:Sukces analizy</div>
+<div class="log-entry-content">
+<div class="log-entry-description">Analiza zakończyła się pomyślnie. Nie znaleziono żadnych problemów z wydajnością. Nie zwrócono żadnych informacji.</div><span></span></div>
+</div>
+</div>
+</body>
+</html>
