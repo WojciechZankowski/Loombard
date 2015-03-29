@@ -104,31 +104,29 @@ public class Model {
 
     private void batteryTest() throws IOException, InterruptedException {
         String AbsolutePath = new File("").getAbsolutePath();
-        Process p = new ProcessBuilder("runas", "/profile", "/user:Administrator" ,"cmd.exe", "/c", "powercfg", "-energy", "-output", AbsolutePath+"\\battery.txt").start();
+        Process p = new ProcessBuilder("cmd.exe", "/c", AbsolutePath+"\\BIV\\BatteryInfoView.exe", "/stext",AbsolutePath+"\\BIV\\battery.txt").start();
         p.waitFor();
-        ArrayList<String> batteryList;
-        batteryList = Reader.read(AbsolutePath + "\\battery.txt");
+        String battery = Reader.readBlock(AbsolutePath + "\\BIV\\battery.txt");
+        String[] batteryList = battery.split("\n");
         String prv = "";
         String prvprv = "";
         int cap = 0;
         int now = 0;
         for(String line : batteryList) {
             //System.out.println(line);
-            if(prvprv.contains("Pojemność nominalna") || prvprv.contains("Design Capacity")) {
+            if(prv.contains("Obecna pojemność")) {
                 line = line.replaceAll("\\D+", "");
                 System.out.println(line);
-                cap = Integer.parseInt(line);
-            } else if(prvprv.contains("Ostatnie pełne ładowanie") || prvprv.contains("Last Full Charge")) {
-                line = line.replaceAll("\\D+", "");
-                now = Integer.parseInt(line);
+                if(!line.isEmpty()) {
+                    cap = Integer.parseInt(line);
+                    Battery bat = new Battery((float)cap);
+                } else {
+                    Battery bat = new Battery(0);
+                }
+
             }
-            prvprv = prv;
             prv = line;
         }
-        System.out.println(cap);
-        System.out.println(now);
-        System.out.println((float)cap/now);
-        Battery bat = new Battery((float)now/cap);
     }
 
     private void saveTests() {
@@ -144,7 +142,7 @@ public class Model {
         Boolean state = new File(path).mkdir();
         System.out.print(state+" KURWA ");
         try {
-            copyFile(new File(AbsolutePath + "\\battery.txt"), new File(path+ "\\battery.txt"));
+            copyFile(new File(AbsolutePath + "\\BIV\\battery.txt"), new File(path+ "\\battery.txt"));
         } catch (IOException e) {
             e.printStackTrace();
         }

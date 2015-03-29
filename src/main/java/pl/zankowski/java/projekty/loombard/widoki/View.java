@@ -216,10 +216,12 @@ public class View extends JFrame {
         left.add(new JLabel("Zużycie baterii: "));
         float bat = Battery.getUsage();
         System.out.println(bat);
-        if(bat >= 0.7)
+        if(bat >= 80)
             left.add(createStateField(" dobry"));
-        else if(bat < 0.7 && bat > 0.4)
+        else if(bat < 80 && bat > 65)
             left.add(createStateField(" uwaga"));
+        else if(bat == 0.0)
+            left.add(createStateField(" nieznane"));
         else
             left.add(createStateField(" zły"));
         healthPanel.add(left);
@@ -318,6 +320,7 @@ public class View extends JFrame {
                 field.setBackground(Color.RED);
                 break;
             default:
+                field.setBackground(Color.GRAY);
                 break;
         }
         field.setText(text);
