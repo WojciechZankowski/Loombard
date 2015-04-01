@@ -1,22 +1,12 @@
 package pl.zankowski.java.projekty.loombard.widoki;
 
-import pl.zankowski.java.projekty.loombard.model.Battery;
-import pl.zankowski.java.projekty.loombard.model.Drives;
-import pl.zankowski.java.projekty.loombard.model.HDD;
-
 import javax.swing.*;
-import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
-import javax.swing.plaf.ColorUIResource;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.geom.Point2D;
-import java.awt.geom.RoundRectangle2D;
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -25,32 +15,16 @@ import java.util.HashMap;
  */
 public class View extends JFrame {
 
-    private HashMap<String, JTextField> mainInfo;
-    private HashMap<String, JMenuItem> menuItem;
-    private JTabbedPane diskTab;
-    private ArrayList<JPanel> tabs = new ArrayList<JPanel>();
+    private HashMap<String, JTextField> fields = new HashMap<String, JTextField>();
+    private HashMap<String, JButton> buttons = new HashMap<String, JButton>();
+    private JPanel cardsPanel;
+    private JTextField driveField;
+    private JTextField batteryField;
+    private final static int width = 550;
+    private final static int height = 530;
+    private Color transparent = new Color(0,0,0,0);
 
-    public View(String name) {
-        //super(name);
-
-        //UIManager.put("TabbedPane.borderColor", new Color(0, 0, 0, 0));
-
-        //UIManager.put("TabbedPane.background", new Color(0, 0, 0, 0));
-        //UIManager.put("TabbedPane.selected", Color.WHITE);
-        //UIManager.put("TabbedPane.contentOpaque", false);
-        /*UIManager.put("TabbedPane.tabAreaBackground", new Color(95,161,65));
-        UIManager.put("TabbedPane.borderHightlightColor", new Color(95,161,65));
-        UIManager.put("TabbedPane.shadow", new Color(0, 0, 0, 0));
-        UIManager.put("TabbedPane.darkShadow", new Color(0, 0, 0, 0));
-        UIManager.put("TabbedPane.highlight", new Color(4,92,46));
-        UIManager.put("TabbedPane.borderHightlightColor", new Color(0, 0, 0, 0));
-        UIManager.put("TabbedPane.contentAreaColor ", new Color(0, 0, 0, 0));*/
-
-        //UIManager.put("TabbedPane.light", new Color(0, 0, 0, 0));
-        //add(mainInfo());
-        //add(logoPanel());
-        //add(healthPanel());
-        //add(mainInfo());
+    public View() {
 
         JPanel panel1 = new JPanel() {
             @Override
@@ -59,8 +33,6 @@ public class View extends JFrame {
                 RenderingHints qualityHints = new RenderingHints(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
                 qualityHints.put(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
                 g2.setRenderingHints(qualityHints);
-                Color color1 = new Color(4,92,46);
-                Color color2 = new Color(0,148,67);
                 Point2D center = new Point2D.Float(275, 280);
                 float radius = 1800;
                 float[] dist = {0.0f, 0.2f};
@@ -68,304 +40,276 @@ public class View extends JFrame {
                 RadialGradientPaint p =
                         new RadialGradientPaint(center, radius, dist, colors);
                 g2.setPaint(p);
-                g2.fillRoundRect(0, 0, getWidth(), getHeight(), 25, 25);
+                g2.fillRoundRect(0, 0, getWidth(), getHeight(), 0, 0);
                 g2.dispose();
             }
         };
-        panel1.setBackground(Color.BLACK);
-        panel1.setMaximumSize(new Dimension(550,560));
-        panel1.add(logoPanel());
-        panel1.add(healthPanel());
-        panel1.add(mainInfo());
-        panel1.add(hddPanel());
+        panel1.setMaximumSize(new Dimension(width, height));
+        /////////////////////////////////////////
+
+
+        panel1.add(createLogoPanel());
+        panel1.add(createMenuPanel());
+        panel1.add(Box.createRigidArea(new Dimension(0, 5)));
+        panel1.add(createComputerHealthPanel());
+        panel1.add(createInfoPanel());
+        panel1.add(Box.createRigidArea(new Dimension(0, 5)));
+        panel1.add(createHddPanel());
+        //addDiskCard(new String[]{"", "", "", ""}, createJTextField(""));
+
+
+        ////////////////////
+
         panel1.setLayout(new BoxLayout(panel1, BoxLayout.Y_AXIS));
-        //add(hddPanel());
+        //add(cardsPanel());
         add(panel1);
 
         getContentPane().addMouseListener(mouseHandler);
         getContentPane().addMouseMotionListener(mouseHandler);
         setUndecorated(true);
-        //setBackground(new Color(95, 161, 65));
-        setBackground(new Color(0, 0, 0, 0));
+        setBackground(Color.BLACK);
         setLayout(new BoxLayout(this.getContentPane(), BoxLayout.Y_AXIS));
-        setSize(550, 600);
-        //setShape(new RoundRectangle2D.Double(0, 0, 550, 500, 20, 20));
-        //setShape(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 15, 15));
+        setSize(width, height);
         setVisible(true);
         setResizable(false);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
-    private JPanel logoPanel() {
-        String AbsolutePath = new File("").getAbsolutePath();
-        JPanel temp = new JPanel();
-        temp.setLayout(new GridBagLayout());
-        GridBagConstraints c = new GridBagConstraints();
-        c.gridx = 1;
-        c.gridy = 0;
-        c.fill = GridBagConstraints.HORIZONTAL;
-        c.anchor = GridBagConstraints.CENTER;
-        c.insets = new Insets(0,130,0,0);
-        temp.setBackground(new Color(0, 0, 0, 0));
-        temp.setOpaque(true);
-        temp.setMaximumSize(new Dimension(520,50));
-        JLabel picLabel = new JLabel();
-        picLabel.setBackground(new Color(0, 0, 0, 0));
-        picLabel.setForeground(Color.WHITE);
-        picLabel.setPreferredSize(new Dimension(250,50));
-        ImageIcon img = new ImageIcon(AbsolutePath+"\\logo.png");
-        picLabel.setIcon(img);
-        picLabel.setOpaque(true);
-        temp.add(picLabel, c);
-
-
-        c.anchor = GridBagConstraints.FIRST_LINE_END;
-        c.gridy = 0;
-        c.gridx = 2;
-        c.insets = new Insets(0,100,0,0);
-        JButton button = new JButton("X");
-        button.setOpaque(true);
-        button.setBackground(Color.WHITE);
-        button.setBorder(null);
-        button.setBorderPainted(false);
-        button.setFocusPainted(false);
-        button.setMinimumSize(new Dimension(50, 10));
-        button.setPreferredSize(new Dimension(30, 15));
-        button.setMaximumSize(new Dimension(50,10));
-        button.setForeground(new Color(95, 161, 65));
-        button.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.exit(0);
-            }
-        });
-        temp.add(button, c);
-        return temp;
+    private JPanel createMainPanel() {
+        return null;
     }
 
-    private JPanel mainInfo() {
-        mainInfo = new HashMap<String, JTextField>();
-        JPanel mainInfoPanel = new JPanel();
-        TitledBorder border = BorderFactory.createTitledBorder("Opis komputera");
-        border.setTitleColor(Color.WHITE);
-        mainInfoPanel.setLayout(new BoxLayout(mainInfoPanel, BoxLayout.Y_AXIS));
-        mainInfoPanel.setBackground(new Color(0, 0, 0, 0));
-        mainInfoPanel.setMaximumSize(new Dimension(540, 250));
-        mainInfoPanel.setPreferredSize(new Dimension(540,250));
-        String[] labels = new String[]{"System", "Płyta główna", "Procesor", "Pamięć Ram", "Karta graficzna", "Dyski"};
-        JPanel labelPanel = new JPanel(new GridLayout(labels.length, 1));
-        JPanel fieldPanel = new JPanel(new GridLayout(labels.length, 1));
-        fieldPanel.setBackground(new Color(0, 0, 0, 0));
-        labelPanel.setBackground(new Color(0, 0, 0, 0));
-        JPanel temp = new JPanel();
-        temp.setLayout(new BoxLayout(temp, BoxLayout.X_AXIS));
-        temp.add(labelPanel, BorderLayout.WEST);
-        temp.add(fieldPanel, BorderLayout.CENTER);
-        for(int i = 0; i < labels.length; i++) {
-            JTextField field = new JTextField();
-            field.setEditable(false);
-            field.setBackground(Color.WHITE);
-            field.setColumns(37);
-            JLabel label = new JLabel(labels[i], JLabel.RIGHT);
-            //label.setForeground(Color.WHITE);
-            label.setLabelFor(field);
-            label.setBackground(new Color(0, 0, 0, 0));
-            labelPanel.add(label);
-            JPanel p = new JPanel(new FlowLayout(FlowLayout.LEFT));
-            p.setBackground(new Color(0, 0, 0, 0));
-            p.add(field);
-            fieldPanel.add(p);
-            temp.setMaximumSize(new Dimension(540, 300));
-            temp.setPreferredSize(new Dimension(540, 300));
-            temp.setBackground(new Color(0, 0, 0, 0));
-            mainInfo.put(labels[i], field);
-            mainInfoPanel.add(temp);
-        }
-        temp.setBorder(border);
-        return mainInfoPanel;
+    private JPanel createLogoPanel() {
+        JPanel logoPanel = createJPanel(new GridBagLayout(), transparent, new Dimension(width - 20, 50), false);
+        JButton exitButton = createCustomButton("X", Color.WHITE, new Dimension(40,15));
+
+        buttons.put("exitButton", exitButton);
+
+        /*
+         * GridBagConstraints: gridx,gridy,gridwidth,gridheight,weightx,weighty,anchor,fill,insets,ipadx,ipady;
+         */
+        logoPanel.add(createPicLabel(transparent, new ImageIcon(getProjectAbolutePath() + "\\resources\\logo.png")),
+                new GridBagConstraints(0, 0, 1, 1, 1, 1, GridBagConstraints.NORTH, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0));
+        logoPanel.add(exitButton,
+                new GridBagConstraints(0, 0, 1, 1, 1, 1, GridBagConstraints.NORTHEAST, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0));
+        return logoPanel;
     }
 
-    private JPanel healthPanel() {
-        JPanel healthPanel = new JPanel();
-        TitledBorder border = BorderFactory.createTitledBorder("Stan komputera");
-        border.setTitleColor(Color.WHITE);
-        healthPanel.setLayout(new BoxLayout(healthPanel, BoxLayout.X_AXIS));
-        JPanel right = new JPanel();
-        right.setBackground(new Color(0, 0, 0, 0));
-        right.setLayout(new BoxLayout(right, BoxLayout.Y_AXIS));
-        right.add(new JLabel("Stan dysków: "));
-        int u = 0;
-        int z = 0;
-        for(HDD hdd : Drives.getList()) {
-            if(hdd.getStatus().equalsIgnoreCase(" uwaga"))
-                u++;
-            if(hdd.getStatus().equalsIgnoreCase(" zły"))
-                z++;
-        }
-        if(z == 0 && u > 0)
-            right.add(createStateField(" uwaga"));
-        else if(z > 0)
-            right.add(createStateField(" zły"));
-        else
-            right.add(createStateField(" dobry"));
-        healthPanel.add(right);
-        JPanel left = new JPanel();
-        left.setBackground(new Color(0, 0, 0, 0));
-        left.setLayout(new BoxLayout(left, BoxLayout.Y_AXIS));
-        left.add(new JLabel("Zużycie baterii: "));
-        float bat = Battery.getUsage();
-        System.out.println(bat);
-        if(bat >= 80)
-            left.add(createStateField(" dobry"));
-        else if(bat < 80 && bat > 65)
-            left.add(createStateField(" uwaga"));
-        else if(bat == 0.0)
-            left.add(createStateField(" nieznane"));
-        else
-            left.add(createStateField(" zły"));
-        healthPanel.add(left);
-        healthPanel.setBackground(new Color(0, 0, 0, 0));
-        healthPanel.setBorder(border);
-        healthPanel.setMaximumSize(new Dimension(540,100));
+    private JPanel createMenuPanel() {
+        JPanel menuPanel = createJPanel(null, Color.WHITE, new Dimension(width, 25), true);
+        menuPanel.setLayout(new BoxLayout(menuPanel, BoxLayout.X_AXIS));
+        JButton readButton = createJButton("Wczytaj test", Color.WHITE);
+        JButton testButton = createJButton("Przeprowadź test", Color.WHITE);
+        readButton.setForeground(new Color(4, 92, 46));
+        testButton.setForeground(new Color(4, 92, 46));
+        buttons.put("readButton", readButton);
+        buttons.put("testButton", testButton);
+        menuPanel.add(readButton);
+        menuPanel.add(testButton);
+        return menuPanel;
+    }
+
+    private JPanel createInfoPanel() {
+        JPanel infoPanel = createFormsPanel(createJPanel(null, transparent, new Dimension(width - 20, 200), false),
+                new String[]{"System", "Model", "Procesor", "Pamięć Ram", "Karta graficzna", "Dyski"});
+        infoPanel.setBorder(createColoredTitledBorder(BorderFactory.createTitledBorder("Opis komputera"), Color.WHITE));
+        return infoPanel;
+    }
+    
+    private JPanel createComputerHealthPanel() {
+        JPanel healthPanel = createJPanel(new GridLayout(1, 4), transparent, new Dimension(width - 40, 100), false);
+
+        JLabel driveLabel = createJLabel("Stan dysków:", transparent);
+        driveLabel.setHorizontalAlignment(JLabel.CENTER);
+        driveField = createJTextField("");
+        JLabel batteryLabel = createJLabel("Stan baterii:", transparent);
+        batteryLabel.setHorizontalAlignment(JLabel.CENTER);
+        batteryField = createJTextField("");
+
+        fields.put("driveField", driveField);
+        fields.put("batteryField", batteryField);
+
+        healthPanel.add(driveLabel);
+        healthPanel.add(driveField);
+        healthPanel.add(batteryLabel);
+        healthPanel.add(batteryField);
         return healthPanel;
     }
 
-    private JPanel hddPanel;
-    private JPanel hddPanel() {
-        hddPanel = new JPanel();
-        diskTab = new JTabbedPane();
-        //diskTab.setOpaque(false);
-        diskTab.setBackground(new Color(4,92,46));
-        diskTab.setUI(new javax.swing.plaf.basic.BasicTabbedPaneUI(){
-            protected void paintContentBorder(Graphics g,int tabPlacement,int selectedIndex){}
-        });
-        //diskTab.setBorder(null);
-        //diskTab.setBackground(new Color(0, 0, 0, 0));
-        JPanel panel1 = new JPanel();
-        panel1.setBackground(new Color(0, 0, 0, 0));
-        JPanel panel2 = new JPanel();
-        panel2.setBackground(new Color(0, 0, 0, 0));
-        hddPanel.add(diskTab);
-        hddPanel.setLayout(new BoxLayout(hddPanel, BoxLayout.X_AXIS));
-        hddPanel.setBackground(new Color(0, 0, 0, 0));
-        hddPanel.setMaximumSize(new Dimension(540, 150));
+    private TitledBorder createColoredTitledBorder(TitledBorder border, Color color) {
+        border.setTitleColor(color);
+        return border;
+    }
+
+    private JPanel createFormsPanel(JPanel panel, String[] labels) {
+        GroupLayout layout = setGroupLayoutSettings(new GroupLayout(panel));
+        GroupLayout.ParallelGroup parallelGroup = layout.createParallelGroup();
+        GroupLayout.SequentialGroup sequentialGroup = layout.createSequentialGroup();
+        layout.setHorizontalGroup(layout.createSequentialGroup().addGroup(parallelGroup));
+        JLabel[] tempLabels = new JLabel[labels.length];
+        layout.setVerticalGroup(sequentialGroup);
+        for(int i = 0; i < labels.length; i++) {
+            JTextField field = createJTextField("");
+            tempLabels[i] = createJLabel(labels[i], transparent);
+            tempLabels[i].setLabelFor(field);
+            fields.put(labels[i], field);
+            parallelGroup.addGroup(layout.createSequentialGroup().addComponent(tempLabels[i]).addComponent(field));
+            sequentialGroup.addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE).addComponent(tempLabels[i]).addComponent(field));
+            layout.linkSize(SwingConstants.HORIZONTAL, tempLabels[i], tempLabels[0]);
+        }
+        panel.setLayout(layout);
+        return panel;
+    }
+
+    private JTextField createJTextField(String text) {
+        JTextField field = new JTextField();
+        field.setText(text);
+        field.setEditable(false);
+        return field;
+    }
+
+    private GroupLayout setGroupLayoutSettings(GroupLayout layout) {
+        layout.setAutoCreateGaps(true);
+        layout.setAutoCreateContainerGaps(true);
+        return layout;
+    }
+
+    protected String getProjectAbolutePath() {
+        return new File("").getAbsolutePath();
+    }
+
+    private JLabel createJLabel(String text, Color bgColor) {
+        JLabel label = new JLabel(text);
+        label.setBackground(bgColor);
+        label.setForeground(Color.WHITE);
+        return label;
+    }
+
+    private JLabel createPicLabel(Color bgColor, ImageIcon img) {
+        JLabel picLabel = createJLabel("", bgColor);
+        picLabel.setIcon(img);
+        return picLabel;
+    }
+
+    private JButton createCustomButton(String text, Color bgColor, Dimension prefSize) {
+        JButton exitButton = createJButton(text, bgColor);
+        exitButton.setOpaque(true);
+        exitButton.setBorder(null);
+        exitButton.setBorderPainted(false);
+        exitButton.setFocusPainted(false);
+        exitButton.setPreferredSize(prefSize);
+        exitButton.setForeground(new Color(95, 161, 65));
+        return exitButton;
+    }
+
+    private JButton createJButton(String text, Color bgColor) {
+        JButton button = new JButton(text);
+        button.setBackground(bgColor);
+        button.setFocusPainted(false);
+        return button;
+    }
+
+    private JPanel createJPanel(LayoutManager layout, Color bgColor, Boolean opaque) {
+        return createJPanel(layout, bgColor, null, opaque);
+    }
+
+    private JPanel createJPanel(LayoutManager layout, Color bgColor, Dimension maxSize, Boolean opaque) {
+        JPanel panel = new JPanel(layout);
+        panel.setBackground(bgColor);
+        panel.setOpaque(opaque);
+        if(maxSize != null)
+            panel.setMaximumSize(maxSize);
+        return panel;
+    }
+
+    private JPanel createHddPanel() {
+        JPanel hddPanel = createJPanel(new GridBagLayout(), transparent, new Dimension(width - 40, 150), false);
+        JButton previousButton = createCustomButton("<", Color.WHITE, new Dimension(20, 20));
+        JButton nextButton = createCustomButton(">", Color.WHITE, new Dimension(20, 20));
+        cardsPanel = createJPanel(new CardLayout(), transparent, new Dimension(width - 40, 150), false);
+
+        buttons.put("previousButton", previousButton);
+        buttons.put("nextButton", nextButton);
+
+        hddPanel.add(previousButton,
+                new GridBagConstraints(0, 0, 1, 1, 1, 1, GridBagConstraints.NORTHWEST, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0));
+        hddPanel.add(nextButton,
+                new GridBagConstraints(0, 0, 1, 1, 1, 1, GridBagConstraints.NORTHEAST, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0));
+        hddPanel.add(cardsPanel,
+                new GridBagConstraints(0, 0, 1, 1, 1, 1, GridBagConstraints.NORTH, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0));
         return hddPanel;
     }
 
-    public void addDiskTab(String tabName, String[] params) {
-        JPanel tempPanel = new JPanel();
-        tempPanel.setLayout(new FlowLayout());
-        tempPanel.setBackground(new Color(0, 0, 0, 0));
-        JPanel right = new JPanel();
-        right.setBackground(new Color(0, 0, 0, 0));
-        right.setLayout(new BoxLayout(right, BoxLayout.Y_AXIS));
-        right.add(new JLabel("Stan dysku: "));
-        right.add(createStateField(params[params.length - 1]));
+    public void addDiskCard(String[] params, JTextField statusField) {
+        JPanel tabPanel = createJPanel(null, transparent, new Dimension(width - 20, 100), false);
+        tabPanel.setLayout(new BoxLayout(tabPanel, BoxLayout.X_AXIS));
+        JPanel statusPanel = createJPanel(null, transparent, false);
+        statusPanel.setLayout(new GridBagLayout());
+        statusPanel.add(createJLabel("Stan dysku: ", Color.WHITE),
+                new GridBagConstraints(0, 0, 1, 1, 1, 1, GridBagConstraints.NORTH, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0));
+        statusPanel.add(statusField,
+                new GridBagConstraints(0, 1, 1, 1, 1, 1, GridBagConstraints.NORTH, GridBagConstraints.NONE, new Insets(0, 0, 0, 0), 0, 0));
 
         String[] labels = new String[]{"Model: ", "Pojemność: ", "Czas użycia: "};
-        JPanel labelPanel = new JPanel(new GridLayout(labels.length, 1));
-        JPanel fieldPanel = new JPanel(new GridLayout(labels.length, 1));
-        fieldPanel.setBackground(new Color(0, 0, 0, 0));
-        labelPanel.setBackground(new Color(0, 0, 0, 0));
-        fieldPanel.setMaximumSize(new Dimension(540, 150));
-        labelPanel.setMaximumSize(new Dimension(540, 150));
-        JPanel temp = new JPanel();
-        temp.setLayout(new BorderLayout());
-        temp.add(labelPanel, BorderLayout.WEST);
-        temp.add(fieldPanel, BorderLayout.CENTER);
-        for(int i = 0; i < labels.length; i++) {
-            JTextField field = createJTextArea(params[i]);
-            field.setEditable(false);
-            field.setBackground(Color.WHITE);
-            field.setColumns(20);
-            JLabel label = new JLabel(labels[i], JLabel.RIGHT);
-            //label.setForeground(Color.WHITE);
-            label.setLabelFor(field);
-            label.setBackground(new Color(0, 0, 0, 0));
-            labelPanel.add(label);
-            /*JPanel p = new JPanel(new FlowLayout(FlowLayout.LEFT));
-            p.setBackground(new Color(0, 0, 0, 0));
-            p.add(field);
-            fieldPanel.add(p);*/
-            fieldPanel.add(field);
-            temp.setMaximumSize(new Dimension(540, 150));
-            temp.setBackground(new Color(0, 0, 0, 0));
-        }
-        tempPanel.add(right);
-        tempPanel.add(temp);
+        JPanel formPanel = createFormsPanel(createJPanel(null, transparent, new Dimension(370, 100), false), labels);
+        for(int i = 0; i < labels.length; i++)
+            fields.get(labels[i]).setText(params[i]);
+        formPanel.setPreferredSize(new Dimension(370, 100));
+        tabPanel.add(statusPanel);
+        tabPanel.add(formPanel);
 
-        tabs.add(tempPanel);
-        tabs.add(right);
-        tabs.add(temp);
-        tabs.add(fieldPanel);
-        tabs.add(labelPanel);
-        diskTab.addTab(tabName, null, tempPanel, params[0]);
+        cardsPanel.add(tabPanel);
+        cardsPanel.repaint();
+        //cardsPanel.revalidate();
+        //cardsPanel.invalidate();
     }
 
-    private JTextField createStateField(String text) {
-        JTextField field = new JTextField();
-        field.setMaximumSize(new Dimension(150, 75));
-        field.setPreferredSize(new Dimension(150, 75));
+    public JTextField createStatusField(int state, String text) {
+        return changeStatusFieldSettings(new JTextField(), state, text);
+    }
+
+    public JTextField changeStatusFieldSettings(JTextField field, int state, String text) {
+        field.setEditable(false);
+        field.setMaximumSize(new Dimension(100, 50));
+        field.setPreferredSize(new Dimension(100, 50));
         field.setHorizontalAlignment(JTextField.CENTER);
         field.setBorder(null);
-        switch (text) {
-            case " dobry":
-                field.setBackground(Color.GREEN);
+        switch (state) {
+            case (0): field.setBackground(new Color(183,20,39));
+                field.setText("zły "+text);
                 break;
-            case " uwaga":
-                field.setBackground(Color.YELLOW);
+            case (1): field.setBackground(new Color(255,230,88));
+                field.setText("uwaga "+text);
                 break;
-            case " zły":
-                field.setBackground(Color.RED);
+            case (2): field.setBackground(new Color(17,140,78));
+                field.setText("dobry "+text);
                 break;
-            default:
-                field.setBackground(Color.GRAY);
+            default: field.setBackground(Color.GRAY);
+                field.setText("nieznany");
                 break;
         }
-        field.setText(text);
-        field.setEditable(false);
         return field;
     }
 
-    private JTextField createJTextArea(String text) {
-        JTextField field = new JTextField();
-        field.setText(text);
-        field.setEditable(false);
-        return field;
+    public void setDriveField(int state, String text) {
+        changeStatusFieldSettings(driveField, state, text);
     }
 
-    private JMenuBar menuBar() {
-        menuItem = new HashMap<String, JMenuItem>();
-        JMenuBar menuBar = new JMenuBar();
-        JMenu fileMenu = new JMenu("Plik");
-        JMenu helpMenu = new JMenu("Pomoc");
-        JMenuItem exitFileMenu = new JMenuItem("Wyjdź");
-        fileMenu.add(exitFileMenu);
-        menuItem.put("exitFileMenu", exitFileMenu);
-        menuBar.add(fileMenu);
-        menuBar.add(helpMenu);
-        return menuBar;
+    public void setBatteryField(int state, String text) {
+        changeStatusFieldSettings(batteryField, state, text);
     }
 
-    public HashMap<String, JTextField> getMainInfo() {
-        return mainInfo;
+    public JPanel getCardsPanel() {
+        return cardsPanel;
     }
 
-    public HashMap<String, JMenuItem> getMenuItem() {
-        return menuItem;
+    public HashMap<String, JButton> getButtons() {
+        return buttons;
     }
 
-    public JTabbedPane getDiskTab() {
-        return diskTab;
-    }
-
-    public JPanel getHddPanel() {
-        return hddPanel;
-    }
-
-    public ArrayList<JPanel> getTabs() {
-        return tabs;
+    public HashMap<String, JTextField> getFields() {
+        return fields;
     }
 
     MouseAdapter mouseHandler = new MouseAdapter() {

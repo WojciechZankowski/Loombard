@@ -7,13 +7,7 @@ import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -31,25 +25,44 @@ public class Controller {
     }
 
     public void control() {
-        System.out.println("WHAT");
-        //JWindow window = makeWindow();
-        //window.add(view);
-        fillMainFields();
-        fillDiskTabs();
-        view.getDiskTab().addChangeListener(new ChangeListener() {
+        controlButtons();
+    }
+
+    private void controlButtons() {
+        HashMap<String, JButton> buttons = view.getButtons();
+        buttons.get("exitButton").addActionListener(new ActionListener() {
             @Override
-            public void stateChanged(ChangeEvent e) {
-                view.getDiskTab().repaint();
-                view.getDiskTab().invalidate();
-                view.getDiskTab().validate();
-                view.getHddPanel().repaint();
-                view.getHddPanel().invalidate();
-                view.getHddPanel().validate();
-                for(JPanel panel : view.getTabs()) {
-                    panel.repaint();
-                    panel.revalidate();
-                    panel.invalidate();
-                }
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
+        buttons.get("previousButton").addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                CardLayout cardLayout = (CardLayout) view.getCardsPanel().getLayout();
+                cardLayout.previous(view.getCardsPanel());
+            }
+        });
+        buttons.get("nextButton").addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                CardLayout cardLayout = (CardLayout) view.getCardsPanel().getLayout();
+                cardLayout.next(view.getCardsPanel());
+            }
+        });
+        buttons.get("readButton").addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        buttons.get("testButton").addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                model.initTest();
+                fillMainFields();
+                fillDiskTabs();
+                updateBatteryField();
             }
         });
     }
@@ -57,87 +70,45 @@ public class Controller {
     private void fillMainFields() {
         ComputerParts cp = new ComputerParts("");
         HashMap<String, ComputerParts> list = cp.getList();
+        view.getFields().get("Dyski").setText("");
         for(String key : list.keySet())
-            view.getMainInfo().get(key).setText(list.get(key).toString());
+            view.getFields().get(key).setText(list.get(key).toString());
         for(HDD drive : Drives.getList())
-            view.getMainInfo().get("Dyski").setText(view.getMainInfo().get("Dyski").getText()+drive.getDiskSize()+" / ");
+            view.getFields().get("Dyski").setText(view.getFields().get("Dyski").getText()+drive.getDiskSize()+" / ");
     }
 
     private void fillDiskTabs() {
         ArrayList<HDD> disks = Drives.getList();
-        int count = 1;
+        int min = 100;
         for(HDD drive : disks) {
-            view.addDiskTab("Dysk "+count++, new String[]{drive.getModel(), drive.getDiskSize(), drive.getHours(), drive.getStatus()});
+            int state = 10;
+            switch(drive.getStatus()) {
+                case (" zły"): state = 0;
+                    break;
+                case (" uwaga"): state = 1;
+                    break;
+                case (" dobry"): state = 2;
+                    break;
+            }
+            if(min > state)
+                min = state;
+            view.addDiskCard(new String[]{drive.getModel(), drive.getDiskSize(), drive.getHours(), drive.getStatus()}, view.createStatusField(state, ""));
         }
+        view.setDriveField(min, "");
     }
 
-    private JWindow makeWindow() {
-        JWindow window = new JWindow();
-        window.setSize(550, 500);
-        window.addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosing(WindowEvent e) {
-                System.exit(0);
-            }
-
-        });
-
-        MouseAdapter mouseHandler = new MouseAdapter() {
-
-            private Point offset;
-
-            protected boolean isWithinBorder(MouseEvent e) {
-                Point p = e.getPoint();
-                Component comp = e.getComponent();
-                return p.x < 10 || p.y < 10 || p.x > comp.getWidth() - 10 || p.y > comp.getHeight()  - 10;
-            }
-
-            @Override
-            public void mouseMoved(MouseEvent e) {
-                Component comp = e.getComponent();
-                if (isWithinBorder(e)) {
-                    System.out.println("Move");
-                    comp.setCursor(Cursor.getPredefinedCursor(Cursor.MOVE_CURSOR));
-                } else {
-                    System.out.println("Default");
-                    comp.setCursor(Cursor.getDefaultCursor());
-                }
-            }
-
-            @Override
-            public void mouseDragged(MouseEvent e) {
-                if (offset != null) {
-                    Point pos = e.getLocationOnScreen();
-
-                    int x = pos.x - offset.x;
-                    int y = pos.y - offset.y;
-
-                    System.out.println(x + "x" + y);
-
-                    SwingUtilities.getWindowAncestor(e.getComponent()).setLocation(x, y);
-                }
-            }
-
-            @Override
-            public void mousePressed(MouseEvent e) {
-                if (isWithinBorder(e)) {
-                    Point pos = e.getComponent().getLocationOnScreen();
-                    offset = new Point(e.getLocationOnScreen());
-                    offset.x -= pos.x;
-                    offset.y -= pos.y;
-                }
-            }
-
-        };
-
-        window.getContentPane().addMouseListener(mouseHandler);
-        window.getContentPane().addMouseMotionListener(mouseHandler);
-
-        window.setLocationRelativeTo(null);
-        window.setVisible(true);
-        return window;
+    private void updateBatteryField() {
+        float usage = Battery.getUsage();
+        int state = 10;
+        if(usage > 85)
+            state = 2;
+        else if(usage > 70)
+            state = 1;
+        else if(usage == 0)
+            state = 10;
+        else
+            state = 0;
+        view.setBatteryField(state, ""+usage+"początkowej pojemności");
     }
-
-
 
 }

@@ -17,8 +17,21 @@ import java.util.regex.Pattern;
 public class Model {
 
     public Model() {
-       dxDiag();
+       /*dxDiag();
        try {
+            crystalDisk();
+            batteryTest();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        saveTests();*/
+    }
+
+    public void initTest() {
+        dxDiag();
+        try {
             crystalDisk();
             batteryTest();
         } catch (IOException e) {
@@ -135,7 +148,7 @@ public class Model {
         Date date = new Date();
         ComputerParts cp = new ComputerParts("");
         HashMap<String, ComputerParts> list = cp.getList();
-        String line = list.get("Płyta główna").getName();
+        String line = list.get("Model").getName();
         //line = line.replaceAll(".", "");
         //line = line.replaceAll(",", "");
         String path = AbsolutePath+"\\Output\\"+ dateFormat.format(date)+" - "+line;

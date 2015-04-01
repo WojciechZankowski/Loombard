@@ -1,7 +1,7 @@
 ------------------
 System Information
 ------------------
-Time of this report: 3/29/2015, 16:38:39
+Time of this report: 3/31/2015, 22:47:29
        Machine name: ZANO-PC
    Operating System: Windows 8.1 Pro 64-bit (6.3, Build 9600) (9600.winblue_r8.150127-1500)
            Language: Polish (Regional Setting: Polish)
@@ -11,7 +11,7 @@ System Manufacturer: Gigabyte Technology Co., Ltd.
           Processor: Intel(R) Core(TM) i5-4570 CPU @ 3.20GHz (4 CPUs), ~3.2GHz
              Memory: 8192MB RAM
 Available OS Memory: 8072MB RAM
-          Page File: 6235MB used, 2917MB available
+          Page File: 6847MB used, 2305MB available
         Windows Dir: C:\WINDOWS
     DirectX Version: DirectX 11
 DX Setup Parameters: Not found
@@ -356,19 +356,19 @@ PS/2 Devices
 Disk & DVD/CD-ROM Drives
 ------------------------
       Drive: C:
- Free Space: 0.6 GB
+ Free Space: 0.3 GB
 Total Space: 99.5 GB
 File System: NTFS
       Model: ST1000DM003-1CH162
 
       Drive: F:
- Free Space: 8.3 GB
+ Free Space: 8.0 GB
 Total Space: 400.0 GB
 File System: NTFS
       Model: ST1000DM003-1CH162
 
       Drive: G:
- Free Space: 0.5 GB
+ Free Space: 0.4 GB
 Total Space: 453.9 GB
 File System: NTFS
       Model: ST1000DM003-1CH162
@@ -1250,47 +1250,76 @@ Diagnostics
 
 Windows Error Reporting:
 +++ WER0 +++:
-Pakiet b³êdów 90802440177, typ 5
-Nazwa zdarzenia: WindowsUpdateFailure2
-OdpowiedŸ: Niedostêpny
-Identyfikator pliku Cab: 0
-
-Sygnatura problemu:
-P1: 7.9.9600.17415
-P2: 8024000e
-P3: 00000000-0000-0000-0000-000000000000
-P4: Scan
-P5: 101
-P6: Unmanaged {855E8A7C-ECB4-4CA3-B045-1DFA50104289}
-P7: 0
-P8: 
-P9: 
-P10: 
-
-Do³¹czone pliki: 
-
-Te pliki mog¹ byæ dostêpne tutaj:
-C:\ProgramData\Microsoft\Windows\WER\ReportArchive\NonCritical_7.9.9600.17415_d7cbd746c69959736132679ff553da2167e1cd1_00000000_241a387e
-
-Symbol analizy: 
-Ponowne sprawdzanie rozwi¹zania: 0
-Identyfikator raportu: 9cdcda63-d5d7-11e4-becd-94de807f4359
-Stan raportu: 0
-Skrócony pakiet: 8bbd7fb9cc113b965f286171a4646958
-+++ WER1 +++:
 Pakiet b³êdów , typ 0
-Nazwa zdarzenia: WindowsUpdateFailure2
+Nazwa zdarzenia: WPNConnectionFailure
 OdpowiedŸ: Niedostêpny
 Identyfikator pliku Cab: 0
 
 Sygnatura problemu:
-P1: 7.9.9600.17415
-P2: 8024000e
-P3: 00000000-0000-0000-0000-000000000000
-P4: Scan
-P5: 101
-P6: Unmanaged {855E8A7C-ECB4-4CA3-B045-1DFA50104289}
-P7: 0
+P1: Test Reconnect
+P2: 8804038d
+P3: WNS
+P4: IPv4
+P5: None
+P6: LAN
+P7: 1
+P8: 191
+P9: 
+P10: 
+
+Do³¹czone pliki: 
+
+Te pliki mog¹ byæ dostêpne tutaj:
+C:\Users\Zano\AppData\Local\Microsoft\Windows\WER\ReportQueue\NonCritical_Test Reconnect_dcd34e67f46568924ea3249dc1c58de314a28_00000000_1fd33ecd
+
+Symbol analizy: 
+Ponowne sprawdzanie rozwi¹zania: 0
+Identyfikator raportu: 7d13ad4d-d772-11e4-becd-94de807f4359
+Stan raportu: 2097252
+Skrócony pakiet: 
++++ WER1 +++:
+Pakiet b³êdów -1485017726, typ 5
+Nazwa zdarzenia: WPNConnectionFailure
+OdpowiedŸ: Niedostêpny
+Identyfikator pliku Cab: 0
+
+Sygnatura problemu:
+P1: Test Reconnect
+P2: 8804038d
+P3: WNS
+P4: IPv4
+P5: None
+P6: LAN
+P7: 1
+P8: 191
+P9: 
+P10: 
+
+Do³¹czone pliki: 
+C:\Users\Zano\AppData\Local\Temp\wpn_3482504581577568578.evtx
+
+Te pliki mog¹ byæ dostêpne tutaj:
+
+
+Symbol analizy: 
+Ponowne sprawdzanie rozwi¹zania: 0
+Identyfikator raportu: 9456411d-d768-11e4-becd-94de807f4359
+Stan raportu: 0
+Skrócony pakiet: 4b21b496bf0304cc371ecf5655ee1d45
++++ WER2 +++:
+Pakiet b³êdów 90745458276, typ 5
+Nazwa zdarzenia: AppxDeploymentFailureBlue
+OdpowiedŸ: Niedostêpny
+Identyfikator pliku Cab: 0
+
+Sygnatura problemu:
+P1: 80070490
+P2: 10
+P3: 3
+P4: windows.visualElements
+P5: 6.3.9600.17415
+P6: 5060
+P7: 
 P8: 
 P9: 
 P10: 
@@ -1298,121 +1327,82 @@ P10:
 Do³¹czone pliki: 
 
 Te pliki mog¹ byæ dostêpne tutaj:
-C:\ProgramData\Microsoft\Windows\WER\ReportQueue\NonCritical_7.9.9600.17415_d7cbd746c69959736132679ff553da2167e1cd1_00000000_241e3513
+C:\ProgramData\Microsoft\Windows\WER\ReportArchive\NonCritical_80070490_6fb81ce59878e39d36bcf3310697637838cbbb9_00000000_2afe77f9
 
 Symbol analizy: 
 Ponowne sprawdzanie rozwi¹zania: 0
-Identyfikator raportu: 9cdcda63-d5d7-11e4-becd-94de807f4359
+Identyfikator raportu: 91f544fc-d74c-11e4-becd-94de807f4359
+Stan raportu: 0
+Skrócony pakiet: 71900a24a5a2f919e47edcd9700b0c5d
++++ WER3 +++:
+Pakiet b³êdów , typ 0
+Nazwa zdarzenia: AppxDeploymentFailureBlue
+OdpowiedŸ: Niedostêpny
+Identyfikator pliku Cab: 0
+
+Sygnatura problemu:
+P1: 80070490
+P2: 10
+P3: 3
+P4: windows.visualElements
+P5: 6.3.9600.17415
+P6: 5060
+P7: 
+P8: 
+P9: 
+P10: 
+
+Do³¹czone pliki: 
+
+Te pliki mog¹ byæ dostêpne tutaj:
+C:\ProgramData\Microsoft\Windows\WER\ReportQueue\NonCritical_80070490_6fb81ce59878e39d36bcf3310697637838cbbb9_00000000_26b6749d
+
+Symbol analizy: 
+Ponowne sprawdzanie rozwi¹zania: 0
+Identyfikator raportu: 91f544fc-d74c-11e4-becd-94de807f4359
 Stan raportu: 2097156
 Skrócony pakiet: 
-+++ WER2 +++:
-Pakiet b³êdów , typ 0
-Nazwa zdarzenia: WindowsUpdateFailure2
-OdpowiedŸ: Niedostêpny
-Identyfikator pliku Cab: 0
-
-Sygnatura problemu:
-P1: 7.9.9600.17415
-P2: 8024000e
-P3: 00000000-0000-0000-0000-000000000000
-P4: Scan
-P5: 101
-P6: Unmanaged {855E8A7C-ECB4-4CA3-B045-1DFA50104289}
-P7: 0
-P8: 
-P9: 
-P10: 
-
-Do³¹czone pliki: 
-C:\Windows\WindowsUpdate.log
-C:\Windows\SoftwareDistribution\ReportingEvents.log
-
-Te pliki mog¹ byæ dostêpne tutaj:
-
-
-Symbol analizy: 
-Ponowne sprawdzanie rozwi¹zania: 0
-Identyfikator raportu: 9cdcda63-d5d7-11e4-becd-94de807f4359
-Stan raportu: 262144
-Skrócony pakiet: 
-+++ WER3 +++:
-Pakiet b³êdów 91270905835, typ 5
-Nazwa zdarzenia: WindowsWcpOtherFailure3
-OdpowiedŸ: Niedostêpny
-Identyfikator pliku Cab: 0
-
-Sygnatura problemu:
-P1: 6.3.9600
-P2: componentstore\deltastore.cpp
-P3: ComponentStore::CRawStoreLayout::RecursivelyRegenerateComponentPayloadFromDelta
-P4: 2946
-P5: c015001a
-P6: 0x2dbbfa84
-P7: 
-P8: 
-P9: 
-P10: 
-
-Do³¹czone pliki: 
-
-Te pliki mog¹ byæ dostêpne tutaj:
-C:\ProgramData\Microsoft\Windows\WER\ReportArchive\Critical_6.3.9600_d3c0b46cd08ce8f3359fcfc3178b217aba0cf_00000000_20fc588b
-
-Symbol analizy: 
-Ponowne sprawdzanie rozwi¹zania: 0
-Identyfikator raportu: 03bd8686-d5c5-11e4-becd-94de807f4359
-Stan raportu: 0
-Skrócony pakiet: 3dd8bb2a53f6cf95931a107d6cd1f294
 +++ WER4 +++:
-Pakiet b³êdów , typ 0
-Nazwa zdarzenia: WindowsWcpOtherFailure3
+Pakiet b³êdów 90745458276, typ 5
+Nazwa zdarzenia: AppxDeploymentFailureBlue
 OdpowiedŸ: Niedostêpny
 Identyfikator pliku Cab: 0
 
 Sygnatura problemu:
-P1: 6.3.9600
-P2: componentstore\deltastore.cpp
-P3: ComponentStore::CRawStoreLayout::RecursivelyRegenerateComponentPayloadFromDelta
-P4: 2946
-P5: c015001a
-P6: 0x2dbbfa84
+P1: 80070490
+P2: 10
+P3: 3
+P4: windows.visualElements
+P5: 6.3.9600.17415
+P6: 5060
 P7: 
 P8: 
 P9: 
 P10: 
 
 Do³¹czone pliki: 
-C:\Windows\Logs\CBS\CBS.log
-C:\Windows\Logs\CBS\CbsPersist_20150329031238.cab
-C:\Windows\Logs\CBS\CbsPersist_20150328155203.cab
-C:\Windows\Logs\CBS\CbsPersist_20150325062843.cab
-C:\Windows\Logs\CBS\CbsPersist_20150324205814.cab
-C:\Windows\Logs\CBS\CbsPersist_20150324043612.cab
-C:\Windows\servicing\Sessions\Sessions.xml
-C:\Windows\WinSxS\poqexec.log
-C:\Windows\Logs\CBS\FilterList.log
 
 Te pliki mog¹ byæ dostêpne tutaj:
-
+C:\ProgramData\Microsoft\Windows\WER\ReportArchive\NonCritical_80070490_6fb81ce59878e39d36bcf3310697637838cbbb9_00000000_1109ccc5
 
 Symbol analizy: 
 Ponowne sprawdzanie rozwi¹zania: 0
-Identyfikator raportu: 03bd8686-d5c5-11e4-becd-94de807f4359
-Stan raportu: 262144
-Skrócony pakiet: 
+Identyfikator raportu: 77c5e653-d74c-11e4-becd-94de807f4359
+Stan raportu: 0
+Skrócony pakiet: 71900a24a5a2f919e47edcd9700b0c5d
 +++ WER5 +++:
 Pakiet b³êdów , typ 0
-Nazwa zdarzenia: WindowsWcpOtherFailure3
+Nazwa zdarzenia: AppxDeploymentFailureBlue
 OdpowiedŸ: Niedostêpny
 Identyfikator pliku Cab: 0
 
 Sygnatura problemu:
-P1: 6.3.9600
-P2: componentstore\deltastore.cpp
-P3: ComponentStore::CRawStoreLayout::RecursivelyRegenerateComponentPayloadFromDelta
-P4: 2946
-P5: c015001a
-P6: 0x2dbbfa84
+P1: 80070490
+P2: 10
+P3: 3
+P4: windows.visualElements
+P5: 6.3.9600.17415
+P6: 5060
 P7: 
 P8: 
 P9: 
@@ -1421,11 +1411,11 @@ P10:
 Do³¹czone pliki: 
 
 Te pliki mog¹ byæ dostêpne tutaj:
-C:\ProgramData\Microsoft\Windows\WER\ReportQueue\Critical_6.3.9600_d3c0b46cd08ce8f3359fcfc3178b217aba0cf_00000000_1c205520
+C:\ProgramData\Microsoft\Windows\WER\ReportQueue\NonCritical_80070490_6fb81ce59878e39d36bcf3310697637838cbbb9_00000000_26b5c95a
 
 Symbol analizy: 
 Ponowne sprawdzanie rozwi¹zania: 0
-Identyfikator raportu: 03bd8686-d5c5-11e4-becd-94de807f4359
+Identyfikator raportu: 77c5e653-d74c-11e4-becd-94de807f4359
 Stan raportu: 2097156
 Skrócony pakiet: 
 +++ WER6 +++:
@@ -1449,11 +1439,11 @@ P10:
 Do³¹czone pliki: 
 
 Te pliki mog¹ byæ dostêpne tutaj:
-C:\ProgramData\Microsoft\Windows\WER\ReportArchive\Critical_6.3.9600_d3c0b46cd08ce8f3359fcfc3178b217aba0cf_00000000_1ff1aaee
+C:\ProgramData\Microsoft\Windows\WER\ReportArchive\Critical_6.3.9600_d3c0b46cd08ce8f3359fcfc3178b217aba0cf_00000000_0e059077
 
 Symbol analizy: 
 Ponowne sprawdzanie rozwi¹zania: 0
-Identyfikator raportu: 1d45c7ba-d5bf-11e4-becd-94de807f4359
+Identyfikator raportu: 6f1a4e3f-d74c-11e4-becd-94de807f4359
 Stan raportu: 0
 Skrócony pakiet: 3dd8bb2a53f6cf95931a107d6cd1f294
 +++ WER7 +++:
@@ -1476,13 +1466,12 @@ P10:
 
 Do³¹czone pliki: 
 C:\Windows\Logs\CBS\CBS.log
+C:\Windows\Logs\CBS\CbsPersist_20150329041049.cab
+C:\Windows\Logs\CBS\CbsPersist_20150329031238.cab
 C:\Windows\Logs\CBS\CbsPersist_20150328155203.cab
 C:\Windows\Logs\CBS\CbsPersist_20150325062843.cab
 C:\Windows\Logs\CBS\CbsPersist_20150324205814.cab
-C:\Windows\Logs\CBS\CbsPersist_20150324043612.cab
-C:\Windows\Logs\CBS\CbsPersist_20150322141729.cab
 C:\Windows\servicing\Sessions\Sessions.xml
-C:\Windows\servicing\Sessions\30435787_1760580092.xml
 C:\Windows\WinSxS\poqexec.log
 C:\Windows\Logs\CBS\FilterList.log
 
@@ -1491,7 +1480,7 @@ Te pliki mog¹ byæ dostêpne tutaj:
 
 Symbol analizy: 
 Ponowne sprawdzanie rozwi¹zania: 0
-Identyfikator raportu: 1d45c7ba-d5bf-11e4-becd-94de807f4359
+Identyfikator raportu: 6f1a4e3f-d74c-11e4-becd-94de807f4359
 Stan raportu: 262144
 Skrócony pakiet: 
 +++ WER8 +++:
@@ -1515,38 +1504,39 @@ P10:
 Do³¹czone pliki: 
 
 Te pliki mog¹ byæ dostêpne tutaj:
-C:\ProgramData\Microsoft\Windows\WER\ReportQueue\Critical_6.3.9600_d3c0b46cd08ce8f3359fcfc3178b217aba0cf_00000000_11d9a783
+C:\ProgramData\Microsoft\Windows\WER\ReportQueue\Critical_6.3.9600_d3c0b46cd08ce8f3359fcfc3178b217aba0cf_00000000_1aad88d6
 
 Symbol analizy: 
 Ponowne sprawdzanie rozwi¹zania: 0
-Identyfikator raportu: 1d45c7ba-d5bf-11e4-becd-94de807f4359
+Identyfikator raportu: 6f1a4e3f-d74c-11e4-becd-94de807f4359
 Stan raportu: 2097156
 Skrócony pakiet: 
 +++ WER9 +++:
-Pakiet b³êdów 91270905835, typ 5
-Nazwa zdarzenia: WindowsWcpOtherFailure3
+Pakiet b³êdów 94633196392, typ 5
+Nazwa zdarzenia: RADAR_PRE_LEAK_64
 OdpowiedŸ: Niedostêpny
 Identyfikator pliku Cab: 0
 
 Sygnatura problemu:
-P1: 6.3.9600
-P2: componentstore\deltastore.cpp
-P3: ComponentStore::CRawStoreLayout::RecursivelyRegenerateComponentPayloadFromDelta
-P4: 2946
-P5: c015001a
-P6: 0x2dbbfa84
+P1: rundll32.exe
+P2: 6.3.9600.17415
+P3: 6.3.9600.2.0.0
+P4: 
+P5: 
+P6: 
 P7: 
 P8: 
 P9: 
 P10: 
 
 Do³¹czone pliki: 
+C:\Users\Zano\AppData\Local\Temp\RDR4879.tmp\empty.txt
 
 Te pliki mog¹ byæ dostêpne tutaj:
-C:\ProgramData\Microsoft\Windows\WER\ReportArchive\Critical_6.3.9600_d3c0b46cd08ce8f3359fcfc3178b217aba0cf_00000000_0689acbe
+
 
 Symbol analizy: 
 Ponowne sprawdzanie rozwi¹zania: 0
-Identyfikator raportu: 47a0ea22-d5bd-11e4-becd-94de807f4359
+Identyfikator raportu: a65cffdf-d749-11e4-becd-94de807f4359
 Stan raportu: 0
-Skrócony pakiet: 3dd8bb2a53f6cf95931a107d6cd1f294
+Skrócony pakiet: 98f3ac30b53ab74e4ff3ce9520c4cffc
