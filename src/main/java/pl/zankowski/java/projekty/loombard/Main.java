@@ -1,9 +1,8 @@
 package pl.zankowski.java.projekty.loombard;
 
-import pl.zankowski.java.projekty.loombard.kontrolery.Controller;
+import pl.zankowski.java.projekty.loombard.controllers.Controller;
 import pl.zankowski.java.projekty.loombard.model.Model;
-import pl.zankowski.java.projekty.loombard.widoki.Loading;
-import pl.zankowski.java.projekty.loombard.widoki.View;
+import pl.zankowski.java.projekty.loombard.views.View;
 
 /**
  * Created by Zano on 2015-03-25.

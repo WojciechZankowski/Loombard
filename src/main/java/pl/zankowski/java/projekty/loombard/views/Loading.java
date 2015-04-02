@@ -1,4 +1,4 @@
-package pl.zankowski.java.projekty.loombard.widoki;
+package pl.zankowski.java.projekty.loombard.views;
 
 import javax.swing.*;
 import java.awt.*;

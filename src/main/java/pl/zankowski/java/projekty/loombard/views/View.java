@@ -1,4 +1,4 @@
-package pl.zankowski.java.projekty.loombard.widoki;
+package pl.zankowski.java.projekty.loombard.views;
 
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
@@ -7,7 +7,6 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.geom.Point2D;
 import java.io.File;
-import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -25,14 +24,23 @@ public class View extends JFrame {
     private Color transparent = new Color(0,0,0,0);
 
     public View() {
+        add(createMainPanel());
+        getContentPane().addMouseListener(mouseHandler);
+        getContentPane().addMouseMotionListener(mouseHandler);
+        setUndecorated(true);
+        setLayout(new BoxLayout(this.getContentPane(), BoxLayout.Y_AXIS));
+        setSize(width, height);
+        setVisible(true);
+        setResizable(false);
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+    }
 
-        JPanel panel1 = new JPanel() {
+    private JPanel createMainPanel() {
+        JPanel mainPanel = new JPanel() {
             @Override
             protected void paintComponent(Graphics g) {
                 Graphics2D g2 = (Graphics2D) g.create();
-                RenderingHints qualityHints = new RenderingHints(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-                qualityHints.put(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
-                g2.setRenderingHints(qualityHints);
                 Point2D center = new Point2D.Float(275, 280);
                 float radius = 1800;
                 float[] dist = {0.0f, 0.2f};
@@ -40,44 +48,21 @@ public class View extends JFrame {
                 RadialGradientPaint p =
                         new RadialGradientPaint(center, radius, dist, colors);
                 g2.setPaint(p);
-                g2.fillRoundRect(0, 0, getWidth(), getHeight(), 0, 0);
+                g2.fillRect(0, 0, getWidth(), getHeight());
                 g2.dispose();
             }
         };
-        panel1.setMaximumSize(new Dimension(width, height));
-        /////////////////////////////////////////
-
-
-        panel1.add(createLogoPanel());
-        panel1.add(createMenuPanel());
-        panel1.add(Box.createRigidArea(new Dimension(0, 5)));
-        panel1.add(createComputerHealthPanel());
-        panel1.add(createInfoPanel());
-        panel1.add(Box.createRigidArea(new Dimension(0, 5)));
-        panel1.add(createHddPanel());
-        //addDiskCard(new String[]{"", "", "", ""}, createJTextField(""));
-
-
-        ////////////////////
-
-        panel1.setLayout(new BoxLayout(panel1, BoxLayout.Y_AXIS));
-        //add(cardsPanel());
-        add(panel1);
-
-        getContentPane().addMouseListener(mouseHandler);
-        getContentPane().addMouseMotionListener(mouseHandler);
-        setUndecorated(true);
-        setBackground(Color.BLACK);
-        setLayout(new BoxLayout(this.getContentPane(), BoxLayout.Y_AXIS));
-        setSize(width, height);
-        setVisible(true);
-        setResizable(false);
-        setLocationRelativeTo(null);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    }
-
-    private JPanel createMainPanel() {
-        return null;
+        mainPanel.setMaximumSize(new Dimension(width, height));
+        mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
+        mainPanel.add(createLogoPanel());
+        mainPanel.add(createMenuPanel());
+        mainPanel.add(Box.createRigidArea(new Dimension(0, 15)));
+        mainPanel.add(createComputerHealthPanel());
+        mainPanel.add(Box.createRigidArea(new Dimension(0, 5)));
+        mainPanel.add(createInfoPanel());
+        mainPanel.add(Box.createRigidArea(new Dimension(0, 15)));
+        mainPanel.add(createHddPanel());
+        return mainPanel;
     }
 
     private JPanel createLogoPanel() {
@@ -116,7 +101,7 @@ public class View extends JFrame {
         infoPanel.setBorder(createColoredTitledBorder(BorderFactory.createTitledBorder("Opis komputera"), Color.WHITE));
         return infoPanel;
     }
-    
+
     private JPanel createComputerHealthPanel() {
         JPanel healthPanel = createJPanel(new GridLayout(1, 4), transparent, new Dimension(width - 40, 100), false);
 
@@ -261,8 +246,7 @@ public class View extends JFrame {
 
         cardsPanel.add(tabPanel);
         cardsPanel.repaint();
-        //cardsPanel.revalidate();
-        //cardsPanel.invalidate();
+        cardsPanel.revalidate();
     }
 
     public JTextField createStatusField(int state, String text) {
@@ -357,6 +341,5 @@ public class View extends JFrame {
                 offset.y -= pos.y;
             }
         }
-
     };
 }

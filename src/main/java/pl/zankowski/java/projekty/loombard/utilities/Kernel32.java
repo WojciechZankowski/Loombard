@@ -1,4 +1,4 @@
-package pl.zankowski.java.projekty.loombard;
+package pl.zankowski.java.projekty.loombard.utilities;
 
 import com.sun.jna.Native;
 import com.sun.jna.Structure;
@@ -16,7 +16,7 @@ public interface Kernel32 extends StdCallLibrary {
     /**
      * @see http://msdn2.microsoft.com/en-us/library/aa373232.aspx
      */
-    public class SYSTEM_POWER_STATUS extends Structure {
+    class SYSTEM_POWER_STATUS extends Structure {
         public byte ACLineStatus;
         public byte BatteryFlag;
         public byte BatteryLifePercent;
@@ -94,9 +94,59 @@ public interface Kernel32 extends StdCallLibrary {
         }
     }
 
+    class MEMORYSTATUS extends Structure {
+
+        public int dwLength;
+        public int dwMemoryLoad;
+        public long dwTotalPhys;
+        public long dwAvailPhys;
+        public long dwTotalPageFile;
+        public long dwAvailPageFile;
+        public long dwTotalVirtual;
+        public long dwAvailVirtual;
+
+        @Override
+        protected List getFieldOrder() {
+            ArrayList<String> fields = new ArrayList<String>();
+            fields.add("dwLength");
+            fields.add("dwMemoryLoad");
+            fields.add("dwTotalPhys");
+            fields.add("dwAvailPhys");
+            fields.add("dwTotalPageFile");
+            fields.add("dwAvailPageFile");
+            fields.add("dwTotalVirtual");
+            fields.add("dwAvailVirtual");
+            return fields;
+        }
+
+        public String getTotalPhysString() {
+            return Math.round((double)dwTotalPhys/(1024*1024*1000)) + "GB RAM";
+        }
+
+        public String getMemoryLoadString() {
+            return dwMemoryLoad+"";
+        }
+
+        @Override
+        public String toString(){
+            StringBuilder sb = new StringBuilder();
+            sb.append(dwLength + "\n");
+            sb.append(getMemoryLoadString() + "\n");
+            sb.append(getTotalPhysString() + "\n");
+            sb.append(dwAvailPhys + "\n");
+            sb.append(dwTotalPageFile + "\n");
+            sb.append(dwAvailPageFile + "\n");
+            sb.append(dwTotalVirtual + "\n");
+            sb.append(dwAvailVirtual + "\n");
+            return sb.toString();
+        }
+    }
+
     /**
      * Fill the structure.
      */
     public int GetSystemPowerStatus(SYSTEM_POWER_STATUS result);
+
+    public void GlobalMemoryStatus(MEMORYSTATUS result);
 
 }

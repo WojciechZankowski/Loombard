@@ -1,4 +1,4 @@
-package pl.zankowski.java.projekty.loombard.model;
+package pl.zankowski.java.projekty.loombard.utilities;
 
 import java.io.*;
 import java.util.ArrayList;
